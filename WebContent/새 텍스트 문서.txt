@@ -23,3 +23,16 @@ DATE_FORMAT(NOW(), '%H%i%s');
 <마리아db 시간 출력>
 
 
+CREATE TABLE `board` (
+	`num` INT(11) NOT NULL AUTO_INCREMENT,
+	`title` VARCHAR(100) NOT NULL COLLATE 'utf8_general_ci',
+	`content` TEXT NULL COLLATE 'utf8_general_ci',
+	`credat` CHAR(8) NOT NULL COLLATE 'utf8_general_ci',
+	`cretim` CHAR(6) NOT NULL COLLATE 'utf8_general_ci',
+	`creusr` VARCHAR(20) NOT NULL COLLATE 'utf8_general_ci',
+	PRIMARY KEY (`num`) USING BTREE
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=5
+;
