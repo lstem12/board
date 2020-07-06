@@ -36,4 +36,37 @@ COLLATE='utf8_general_ci'
 ENGINE=InnoDB
 AUTO_INCREMENT=5
 ;
-11
+
+오라클 접속 사용자 이름 : system 비번 : 설치할때 비번
+
+<tablespace 생성>
+create tablespace jwc
+datafile 'jwc'
+size 1024M
+autoextend on next 1M maxsize unlimited;
+
+<user 생성>
+create user c##test identified by test;
+
+<권한 부여>
+grant connect, resource, dba to c##test;
+
+
+create table board(
+num number(10) not null,
+title varchar2(100) not null,
+content varchar2(4000) not null,
+credat char(8) not null,
+cretim char(6) not null,
+creusr varchar2(100) not null
+);
+
+select * from board;
+insert into board(num, title, content, credat, cretim, creusr)
+values(
+(select nvl(max(num),0)+1 from board),
+'제목','내용','20200706','113900','유저');
+
+select * from board;
+
+select max(num),min(num),sum(num),avg(num) from board;
